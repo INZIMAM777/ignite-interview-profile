@@ -2,6 +2,7 @@
 import React from 'react';
 import { ChevronDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import ProfileImage from './ProfileImage';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -19,6 +20,16 @@ const Hero = () => {
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="animate-fade-in">
+          {/* Profile Image */}
+          <div className="flex justify-center mb-8">
+            <ProfileImage 
+              src="/placeholder.svg" 
+              alt="Your Name"
+              size="xl"
+              className="animate-scale-in"
+            />
+          </div>
+
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
             Hi, I'm <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Your Name</span>
           </h1>
