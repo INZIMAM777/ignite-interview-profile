@@ -22,7 +22,7 @@ const About = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        ease: "easeOut"
       }
     }
   };
@@ -34,7 +34,7 @@ const About = () => {
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        ease: "easeOut"
       }
     }
   };
@@ -98,7 +98,7 @@ const About = () => {
                 }}
               />
               <motion.img 
-                src="/lovable-uploads/dc754c98-517a-47fe-a43c-9e97ba94cc98.png" 
+                src="/lovable-uploads/e2df5aea-fa40-4f63-9165-c7786a36b1ed.png" 
                 alt="Inzimamul Haq N"
                 className="relative z-10 w-80 h-80 object-cover rounded-2xl shadow-2xl"
                 whileHover={{ scale: 1.05, rotate: 2 }}

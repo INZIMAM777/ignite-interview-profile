@@ -2,11 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronDown, Github, Linkedin, Mail, Download, ArrowRight, Code2, Database, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import ProfileImage from './ProfileImage';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
-  const [displayText, setDisplayText] = useState('');
   const [currentRole, setCurrentRole] = useState(0);
   const roles = ['Web Developer', 'Freelancer', 'Canva/Figma Designer', 'UI/UX Designer'];
 
@@ -45,7 +43,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
       {/* Enhanced animated background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
@@ -132,189 +130,187 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Text content */}
-          <motion.div 
-            className="space-y-8"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <div>
-              <motion.p 
-                className="text-purple-400 font-medium mb-2"
-                variants={itemVariants}
-              >
-                Hello, I'm
-              </motion.p>
-              <motion.h1 
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
-                variants={itemVariants}
-              >
-                Inzimamul <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">Haq N</span>
-              </motion.h1>
-              
-              <motion.div 
-                className="h-16 flex items-center"
-                variants={itemVariants}
-              >
-                <p className="text-2xl md:text-3xl text-gray-300">
-                  I'm a{' '}
-                  <motion.span 
-                    className="text-purple-400 font-semibold"
-                    key={currentRole}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    {roles[currentRole]}
-                  </motion.span>
-                </p>
-              </motion.div>
-              
-              <motion.p 
-                className="text-lg text-gray-400 max-w-xl leading-relaxed"
-                variants={itemVariants}
-              >
-                Passionate web developer, freelancer, and hands-on coder who loves creating visually appealing, 
-                responsive, and functional websites. I transform ideas into clean, efficient code and deliver 
-                polished digital products across various platforms.
-              </motion.p>
-            </div>
-            
+        {/* Profile Image at Top */}
+        <motion.div 
+          className="flex justify-center mb-12"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <div className="relative">
             <motion.div 
-              className="flex flex-wrap gap-4"
+              className="absolute -inset-4 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 rounded-full blur-lg opacity-30"
+              animate={{
+                scale: [1, 1.1, 1],
+                rotate: [0, 180, 360]
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+            <motion.div
+              whileHover={{ scale: 1.05, rotate: 2 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="relative z-10 w-60 h-60 rounded-full overflow-hidden ring-4 ring-purple-500/20 hover:ring-purple-500/40 transition-all duration-300">
+                <img 
+                  src="/lovable-uploads/e2df5aea-fa40-4f63-9165-c7786a36b1ed.png" 
+                  alt="Inzimamul Haq N"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+            
+            {/* Floating elements around image */}
+            <motion.div 
+              className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center opacity-80"
+              animate={{
+                y: [-5, 5, -5],
+                rotate: [0, 180, 360]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <Code2 className="h-6 w-6 text-white" />
+            </motion.div>
+            <motion.div 
+              className="absolute -bottom-4 -left-4 w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center opacity-80"
+              animate={{
+                y: [5, -5, 5],
+                rotate: [360, 180, 0]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.5
+              }}
+            >
+              <Database className="h-5 w-5 text-white" />
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Text content below image */}
+        <motion.div 
+          className="text-center space-y-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <div>
+            <motion.p 
+              className="text-purple-400 font-medium mb-2"
               variants={itemVariants}
             >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-3 rounded-full transition-all duration-300 group">
-                  <motion.div
-                    animate={{ y: [0, -2, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <Download className="mr-2 h-4 w-4" />
-                  </motion.div>
-                  Download CV
-                </Button>
-              </motion.div>
-              
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button 
-                  variant="outline" 
-                  className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white px-8 py-3 rounded-full transition-all duration-300 group" 
-                  onClick={() => scrollToSection('projects')}
-                >
-                  View Work
-                  <motion.div
-                    animate={{ x: [0, 3, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </motion.div>
-                </Button>
-              </motion.div>
-            </motion.div>
-
-            <motion.div 
-              className="flex space-x-6"
-              variants={containerVariants}
+              Hello, I'm
+            </motion.p>
+            <motion.h1 
+              className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
+              variants={itemVariants}
             >
-              {[
-                { icon: Github, href: "#" },
-                { icon: Linkedin, href: "#" },
-                { icon: Mail, href: "#" }
-              ].map((social, index) => (
-                <motion.a 
-                  key={index}
-                  href={social.href} 
-                  className="text-gray-400 hover:text-purple-400 transition-all duration-300"
-                  variants={itemVariants}
-                  whileHover={{ 
-                    scale: 1.2,
-                    rotate: [0, -10, 10, 0],
-                    transition: { duration: 0.3 }
-                  }}
-                  whileTap={{ scale: 0.9 }}
+              Inzimamul <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">Haq N</span>
+            </motion.h1>
+            
+            <motion.div 
+              className="h-16 flex items-center justify-center"
+              variants={itemVariants}
+            >
+              <p className="text-2xl md:text-3xl text-gray-300">
+                I'm a{' '}
+                <motion.span 
+                  className="text-purple-400 font-semibold"
+                  key={currentRole}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
                 >
-                  <social.icon className="h-8 w-8" />
-                </motion.a>
-              ))}
+                  {roles[currentRole]}
+                </motion.span>
+              </p>
+            </motion.div>
+            
+            <motion.p 
+              className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed"
+              variants={itemVariants}
+            >
+              Passionate web developer, freelancer, and hands-on coder who loves creating visually appealing, 
+              responsive, and functional websites. I transform ideas into clean, efficient code and deliver 
+              polished digital products across various platforms.
+            </motion.p>
+          </div>
+          
+          <motion.div 
+            className="flex flex-wrap gap-4 justify-center"
+            variants={itemVariants}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-3 rounded-full transition-all duration-300 group">
+                <motion.div
+                  animate={{ y: [0, -2, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <Download className="mr-2 h-4 w-4" />
+                </motion.div>
+                Download CV
+              </Button>
+            </motion.div>
+            
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button 
+                variant="outline" 
+                className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white px-8 py-3 rounded-full transition-all duration-300 group" 
+                onClick={() => scrollToSection('projects')}
+              >
+                View Work
+                <motion.div
+                  animate={{ x: [0, 3, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </motion.div>
+              </Button>
             </motion.div>
           </motion.div>
 
-          {/* Right side - Profile image */}
-          <div className="flex justify-center lg:justify-end">
-            <motion.div 
-              className="relative"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <motion.div 
-                className="absolute -inset-4 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 rounded-full blur-lg opacity-30"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 180, 360]
+          <motion.div 
+            className="flex space-x-6 justify-center"
+            variants={containerVariants}
+          >
+            {[
+              { icon: Github, href: "#" },
+              { icon: Linkedin, href: "#" },
+              { icon: Mail, href: "#" }
+            ].map((social, index) => (
+              <motion.a 
+                key={index}
+                href={social.href} 
+                className="text-gray-400 hover:text-purple-400 transition-all duration-300"
+                variants={itemVariants}
+                whileHover={{ 
+                  scale: 1.2,
+                  rotate: [0, -10, 10, 0],
+                  transition: { duration: 0.3 }
                 }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              />
-              <motion.div
-                whileHover={{ scale: 1.05, rotate: 2 }}
-                transition={{ duration: 0.3 }}
+                whileTap={{ scale: 0.9 }}
               >
-                <div className="relative z-10 w-80 h-80 rounded-full overflow-hidden ring-4 ring-purple-500/20 hover:ring-purple-500/40 transition-all duration-300">
-                  <img 
-                    src="/lovable-uploads/dc754c98-517a-47fe-a43c-9e97ba94cc98.png" 
-                    alt="Inzimamul Haq N"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </motion.div>
-              
-              {/* Floating elements around image */}
-              <motion.div 
-                className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center opacity-80"
-                animate={{
-                  y: [-5, 5, -5],
-                  rotate: [0, 180, 360]
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                <Code2 className="h-6 w-6 text-white" />
-              </motion.div>
-              <motion.div 
-                className="absolute -bottom-4 -left-4 w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center opacity-80"
-                animate={{
-                  y: [5, -5, 5],
-                  rotate: [360, 180, 0]
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5
-                }}
-              >
-                <Database className="h-5 w-5 text-white" />
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
+                <social.icon className="h-8 w-8" />
+              </motion.a>
+            ))}
+          </motion.div>
+        </motion.div>
 
         {/* Scroll indicator */}
         <motion.div 
