@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Code2, Database, Globe, Smartphone, Cloud, GitBranch } from 'lucide-react';
+import { Code2, Database, Globe, Smartphone, Cloud, GitBranch, Palette, Wrench } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 
 const Skills = () => {
@@ -14,45 +14,45 @@ const Skills = () => {
       icon: <Globe className="h-8 w-8" />,
       color: "from-blue-500 to-cyan-500",
       skills: [
-        { name: "React.js", level: 95, color: "bg-blue-500" },
-        { name: "TypeScript", level: 90, color: "bg-blue-600" },
-        { name: "Next.js", level: 85, color: "bg-gray-700" },
-        { name: "Tailwind CSS", level: 95, color: "bg-cyan-500" },
-        { name: "JavaScript", level: 95, color: "bg-yellow-500" }
+        { name: "HTML", level: 95, color: "bg-orange-500" },
+        { name: "CSS", level: 90, color: "bg-blue-500" },
+        { name: "JavaScript", level: 80, color: "bg-yellow-500" },
+        { name: "React.js", level: 85, color: "bg-blue-600" },
+        { name: "Tailwind CSS", level: 90, color: "bg-cyan-500" }
       ]
     },
     {
-      title: "Backend Development",
+      title: "Backend & Database",
       icon: <Database className="h-8 w-8" />,
       color: "from-green-500 to-emerald-500",
       skills: [
-        { name: "Node.js", level: 85, color: "bg-green-500" },
-        { name: "Python", level: 80, color: "bg-blue-500" },
-        { name: "Express.js", level: 85, color: "bg-gray-600" },
-        { name: "MongoDB", level: 75, color: "bg-green-600" },
-        { name: "PostgreSQL", level: 80, color: "bg-blue-600" }
+        { name: "PHP", level: 70, color: "bg-purple-500" },
+        { name: "Node.js", level: 75, color: "bg-green-500" },
+        { name: "MySQL", level: 80, color: "bg-blue-600" },
+        { name: "MongoDB", level: 70, color: "bg-green-600" },
+        { name: "API Development", level: 75, color: "bg-gray-600" }
       ]
     },
     {
-      title: "Mobile Development",
-      icon: <Smartphone className="h-8 w-8" />,
+      title: "Design & Creative",
+      icon: <Palette className="h-8 w-8" />,
       color: "from-purple-500 to-pink-500",
       skills: [
-        { name: "React Native", level: 80, color: "bg-blue-500" },
-        { name: "Flutter", level: 75, color: "bg-blue-400" },
-        { name: "iOS", level: 70, color: "bg-gray-600" },
-        { name: "Android", level: 75, color: "bg-green-500" }
+        { name: "Photoshop", level: 85, color: "bg-blue-600" },
+        { name: "Canva", level: 95, color: "bg-purple-500" },
+        { name: "Figma", level: 90, color: "bg-pink-500" },
+        { name: "UI/UX Design", level: 85, color: "bg-indigo-500" }
       ]
     },
     {
-      title: "DevOps & Tools",
-      icon: <Cloud className="h-8 w-8" />,
+      title: "Tools & CMS",
+      icon: <Wrench className="h-8 w-8" />,
       color: "from-orange-500 to-red-500",
       skills: [
-        { name: "Docker", level: 80, color: "bg-blue-500" },
-        { name: "AWS", level: 75, color: "bg-orange-500" },
-        { name: "Git", level: 95, color: "bg-red-500" },
-        { name: "CI/CD", level: 70, color: "bg-green-500" }
+        { name: "WordPress", level: 90, color: "bg-blue-500" },
+        { name: "Git", level: 85, color: "bg-red-500" },
+        { name: "VS Code", level: 95, color: "bg-blue-600" },
+        { name: "Prompt Engineering", level: 88, color: "bg-green-500" }
       ]
     }
   ];
@@ -200,10 +200,10 @@ const Skills = () => {
           animate={isInView ? "visible" : "hidden"}
         >
           {[
-            { label: "Projects Completed", value: "50+", icon: <Code2 className="h-6 w-6" /> },
+            { label: "Projects Completed", value: "25+", icon: <Code2 className="h-6 w-6" /> },
             { label: "Years Experience", value: "3+", icon: <GitBranch className="h-6 w-6" /> },
-            { label: "Technologies", value: "25+", icon: <Database className="h-6 w-6" /> },
-            { label: "Happy Clients", value: "20+", icon: <Globe className="h-6 w-6" /> }
+            { label: "Technologies", value: "15+", icon: <Database className="h-6 w-6" /> },
+            { label: "Happy Clients", value: "15+", icon: <Globe className="h-6 w-6" /> }
           ].map((stat, index) => (
             <motion.div 
               key={index} 

@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
   const [currentRole, setCurrentRole] = useState(0);
-  const roles = ['Full Stack Developer', 'Frontend Specialist', 'Backend Engineer', 'UI/UX Designer'];
+  const roles = ['Web Developer', 'Freelancer', 'Canva/Figma Designer', 'UI/UX Designer'];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,17 +40,6 @@ const Hero = () => {
       transition: {
         duration: 0.6,
         ease: "easeOut"
-      }
-    }
-  };
-
-  const floatingVariants = {
-    animate: {
-      y: [-10, 10, -10],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut"
       }
     }
   };
@@ -101,24 +90,42 @@ const Hero = () => {
         {/* Floating tech icons */}
         <motion.div 
           className="absolute top-20 left-20 opacity-30"
-          variants={floatingVariants}
-          animate="animate"
+          animate={{
+            y: [-10, 10, -10]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
         >
           <Code2 className="h-8 w-8 text-purple-300" />
         </motion.div>
         <motion.div 
           className="absolute bottom-32 right-32 opacity-30"
-          variants={floatingVariants}
-          animate="animate"
-          transition={{ delay: 0.8 }}
+          animate={{
+            y: [-10, 10, -10]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.8
+          }}
         >
           <Database className="h-6 w-6 text-pink-300" />
         </motion.div>
         <motion.div 
           className="absolute top-1/2 right-10 opacity-30"
-          variants={floatingVariants}
-          animate="animate"
-          transition={{ delay: 1.2 }}
+          animate={{
+            y: [-10, 10, -10]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.2
+          }}
         >
           <Globe className="h-7 w-7 text-blue-300" />
         </motion.div>
@@ -144,7 +151,7 @@ const Hero = () => {
                 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
                 variants={itemVariants}
               >
-                Your <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">Name</span>
+                Inzimamul <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_200%]">Haq N</span>
               </motion.h1>
               
               <motion.div 
@@ -170,8 +177,9 @@ const Hero = () => {
                 className="text-lg text-gray-400 max-w-xl leading-relaxed"
                 variants={itemVariants}
               >
-                Passionate about creating exceptional digital experiences through clean code, 
-                innovative design, and cutting-edge technologies. Let's build something amazing together.
+                Passionate web developer, freelancer, and hands-on coder who loves creating visually appealing, 
+                responsive, and functional websites. I transform ideas into clean, efficient code and deliver 
+                polished digital products across various platforms.
               </motion.p>
             </div>
             
@@ -267,7 +275,7 @@ const Hero = () => {
               >
                 <ProfileImage 
                   src="/placeholder.svg" 
-                  alt="Your Name"
+                  alt="Inzimamul Haq N"
                   size="xl"
                   className="relative z-10"
                 />
