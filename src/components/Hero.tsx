@@ -273,12 +273,13 @@ const Hero = () => {
                 whileHover={{ scale: 1.05, rotate: 2 }}
                 transition={{ duration: 0.3 }}
               >
-                <ProfileImage 
-                  src="/placeholder.svg" 
-                  alt="Inzimamul Haq N"
-                  size="xl"
-                  className="relative z-10"
-                />
+                <div className="relative z-10 w-80 h-80 rounded-full overflow-hidden ring-4 ring-purple-500/20 hover:ring-purple-500/40 transition-all duration-300">
+                  <img 
+                    src="/lovable-uploads/dc754c98-517a-47fe-a43c-9e97ba94cc98.png" 
+                    alt="Inzimamul Haq N"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </motion.div>
               
               {/* Floating elements around image */}

@@ -22,7 +22,7 @@ const About = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -34,7 +34,7 @@ const About = () => {
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut"
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -76,7 +76,7 @@ const About = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Profile Image - Moved to top and properly positioned */}
+          {/* Profile Image - Updated with uploaded image */}
           <motion.div 
             className="order-1 lg:order-1 flex justify-center"
             variants={imageVariants}
@@ -98,7 +98,7 @@ const About = () => {
                 }}
               />
               <motion.img 
-                src="/placeholder.svg" 
+                src="/lovable-uploads/dc754c98-517a-47fe-a43c-9e97ba94cc98.png" 
                 alt="Inzimamul Haq N"
                 className="relative z-10 w-80 h-80 object-cover rounded-2xl shadow-2xl"
                 whileHover={{ scale: 1.05, rotate: 2 }}
