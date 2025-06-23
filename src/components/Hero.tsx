@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Github, Linkedin, Mail, Download, ExternalLink, Code, Palette, Database, Gamepad2, User, HelpCircle, Globe } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, Download, ExternalLink, Code } from 'lucide-react';
 
 const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0);
@@ -10,15 +10,6 @@ const Hero = () => {
     "UI/UX Designer", 
     "Frontend Specialist",
     "Creative Coder"
-  ];
-
-  const projectIcons = [
-    { icon: <Globe className="h-6 w-6" />, color: "from-yellow-500 to-orange-500", name: "Business Platform" },
-    { icon: <Palette className="h-6 w-6" />, color: "from-purple-500 to-pink-500", name: "E-commerce Design" },
-    { icon: <Database className="h-6 w-6" />, color: "from-blue-500 to-cyan-500", name: "Real Estate Platform" },
-    { icon: <Gamepad2 className="h-6 w-6" />, color: "from-red-500 to-pink-500", name: "Interactive Games" },
-    { icon: <User className="h-6 w-6" />, color: "from-indigo-500 to-purple-500", name: "Portfolio Sites" },
-    { icon: <HelpCircle className="h-6 w-6" />, color: "from-teal-500 to-blue-500", name: "Quiz Applications" }
   ];
 
   useEffect(() => {
@@ -46,46 +37,18 @@ const Hero = () => {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.4, 0.0, 0.2, 1.0]
-      }
-    }
-  };
-
-  const floatingVariants = {
-    animate: {
-      y: [-10, 10, -10],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut"
+        ease: "easeOut"
       }
     }
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 pt-16">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Floating Project Icons */}
-        {projectIcons.map((item, index) => (
-          <motion.div
-            key={index}
-            className={`absolute w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center opacity-10 backdrop-blur-sm`}
-            style={{
-              left: `${15 + (index * 12)}%`,
-              top: `${20 + (index * 8)}%`,
-            }}
-            variants={floatingVariants}
-            animate="animate"
-            transition={{ delay: index * 0.5 }}
-          >
-            {item.icon}
-          </motion.div>
-        ))}
-        
         {/* Gradient Orbs */}
         <motion.div 
-          className="absolute -top-1/2 -right-1/2 w-96 h-96 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"
+          className="absolute -top-1/2 -right-1/2 w-96 h-96 bg-gradient-to-br from-purple-600 via-pink-600 to-purple-600 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             rotate: [0, 180, 360]
@@ -97,7 +60,7 @@ const Hero = () => {
           }}
         />
         <motion.div 
-          className="absolute -bottom-1/2 -left-1/2 w-96 h-96 bg-gradient-to-tr from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl"
+          className="absolute -bottom-1/2 -left-1/2 w-96 h-96 bg-gradient-to-tr from-blue-600 via-cyan-600 to-blue-600 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             rotate: [360, 180, 0]
@@ -124,7 +87,7 @@ const Hero = () => {
           >
             <div className="relative">
               <motion.div 
-                className="absolute -inset-6 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 rounded-full blur-2xl opacity-30"
+                className="absolute -inset-6 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 rounded-full blur-2xl"
                 animate={{
                   scale: [1, 1.1, 1],
                   rotate: [0, 180, 360]
@@ -138,7 +101,7 @@ const Hero = () => {
               <motion.img 
                 src="/lovable-uploads/e2df5aea-fa40-4f63-9165-c7786a36b1ed.png"
                 alt="Inzimamul Haq N"
-                className="relative z-10 w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white/20 shadow-2xl"
+                className="relative z-10 w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white shadow-2xl"
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 transition={{ duration: 0.3 }}
               />
@@ -193,28 +156,6 @@ const Hero = () => {
             I bring ideas to life with code and creativity.
           </motion.p>
 
-          {/* Project Theme Showcase */}
-          <motion.div 
-            className="mb-12"
-            variants={itemVariants}
-          >
-            <p className="text-gray-500 text-sm mb-4">Featured Project Themes</p>
-            <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
-              {projectIcons.map((item, index) => (
-                <motion.div
-                  key={index}
-                  className={`flex items-center space-x-2 px-4 py-2 bg-gradient-to-r ${item.color} rounded-full text-white text-sm font-medium backdrop-blur-sm`}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  transition={{ duration: 0.2 }}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  {item.icon}
-                  <span>{item.name}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
           {/* CTA Buttons */}
           <motion.div 
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
@@ -222,7 +163,7 @@ const Hero = () => {
           >
             <motion.a
               href="#projects"
-              className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+              className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -233,7 +174,7 @@ const Hero = () => {
             
             <motion.a
               href="#contact"
-              className="group inline-flex items-center px-8 py-4 border-2 border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
+              className="group inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -255,7 +196,7 @@ const Hero = () => {
               <motion.a
                 key={index}
                 href={social.href}
-                className="group w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-300"
+                className="group w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/20 transition-all duration-300"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.9 }}
                 aria-label={social.label}

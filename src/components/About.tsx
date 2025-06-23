@@ -22,7 +22,7 @@ const About = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.4, 0.0, 0.2, 1.0]
+        ease: "easeOut"
       }
     }
   };
@@ -34,7 +34,7 @@ const About = () => {
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: [0.4, 0.0, 0.2, 1.0]
+        ease: "easeOut"
       }
     }
   };
@@ -51,7 +51,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-slate-50 dark:bg-slate-800/50">
+    <section id="about" className="py-20 bg-slate-50 dark:bg-slate-800">
       <div className="container mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
@@ -86,7 +86,7 @@ const About = () => {
           >
             <div className="relative">
               <motion.div 
-                className="absolute -inset-4 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 rounded-2xl blur-lg opacity-30"
+                className="absolute -inset-4 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 rounded-2xl blur-lg"
                 animate={{
                   scale: [1, 1.05, 1],
                   rotate: [0, 180, 360]
@@ -132,7 +132,7 @@ const About = () => {
               {personalInfo.map((info, index) => (
                 <motion.div 
                   key={index}
-                  className="flex items-center space-x-3 p-3 rounded-lg bg-white dark:bg-slate-700/50 shadow-sm hover:shadow-md transition-all duration-300"
+                  className="flex items-center space-x-3 p-3 rounded-lg bg-white dark:bg-slate-700 shadow-sm hover:shadow-md transition-all duration-300"
                   variants={itemVariants}
                   whileHover={{ scale: 1.02, x: 5 }}
                 >
@@ -175,19 +175,19 @@ const About = () => {
           ].map((stat, index) => (
             <motion.div 
               key={index}
-              className="text-center p-6 rounded-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-purple-200/20"
+              className="text-center p-6 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 backdrop-blur-sm border border-purple-200"
               variants={itemVariants}
               whileHover={{ scale: 1.05, y: -5 }}
             >
               <motion.h4 
-                className="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2"
+                className="text-3xl md:text-4xl font-bold text-white mb-2"
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
               >
                 {stat.number}
               </motion.h4>
-              <p className="text-gray-600 dark:text-gray-300 font-medium">{stat.label}</p>
+              <p className="text-white font-medium">{stat.label}</p>
             </motion.div>
           ))}
         </motion.div>
