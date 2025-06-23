@@ -1,431 +1,284 @@
+
 import React, { useState } from 'react';
-import { ExternalLink, Github, Play, Star, GitFork } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { ExternalLink, Github, Code, Palette, Database, Smartphone, Globe, Gamepad2, User, HelpCircle } from 'lucide-react';
 
 const Projects = () => {
-  const [filter, setFilter] = useState('all');
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, threshold: 0.1 });
+  const [activeFilter, setActiveFilter] = useState('all');
 
   const projects = [
     {
+      id: 1,
       title: "Billionaire Hive",
-      description: "A luxury lifestyle platform showcasing premium watches and timeless masterpieces with elegant design and smooth animations.",
-      longDescription: "Sophisticated luxury e-commerce frontend featuring premium watch collections, elegant typography, and immersive user experience with smooth scrolling and animations.",
-      tech: ["HTML", "CSS", "JavaScript", "GSAP", "Responsive Design"],
-      category: "frontend",
-      image: "/lovable-uploads/b538e04c-02fd-4805-9bc7-5f0bf5101947.png",
-      github: "#",
-      live: "https://billionairehive.netlify.app/",
-      stats: { stars: 89, forks: 24 },
-      featured: true
-    },
-    {
-      title: "Diamond Jewellery",
-      description: "Elegant jewellery showcase website with stunning visuals and premium user interface for luxury diamond collections.",
-      longDescription: "Beautiful jewellery e-commerce frontend featuring diamond collections, elegant golden accents, and sophisticated design elements.",
-      tech: ["HTML", "CSS", "JavaScript", "Animations", "Responsive"],
-      category: "frontend",
+      description: "A modern business platform showcasing entrepreneurial success stories and wealth-building strategies.",
       image: "/lovable-uploads/bc7aa22f-1d4a-45b3-af95-8719e381ad3d.png",
-      github: "#",
-      live: "https://diamodjewellery.netlify.app/",
-      stats: { stars: 76, forks: 18 },
-      featured: true
+      tech: ["HTML", "CSS", "JavaScript"],
+      category: "frontend",
+      liveUrl: "https://billionairehive.netlify.app/",
+      githubUrl: "#",
+      featured: true,
+      color: "from-yellow-500 to-orange-500",
+      icon: <Globe className="h-6 w-6" />
     },
     {
-      title: "Arrow Real Estate",
-      description: "Full-stack real estate platform with property listings, user management, and comprehensive backend functionality.",
-      longDescription: "Complete real estate solution with property search, user authentication, admin dashboard, and database management for property listings across multiple cities.",
-      tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "Full Stack"],
-      category: "fullstack",
+      id: 2,
+      title: "Diamond Jewellery",
+      description: "Elegant e-commerce showcase for premium diamond jewelry with sophisticated design and smooth user experience.",
       image: "/lovable-uploads/727f5ce7-ed38-4384-b95c-eb9ddef5e657.png",
-      github: "#",
-      live: "https://arrow-realestate.netlify.app/",
-      stats: { stars: 134, forks: 45 },
-      featured: true
+      tech: ["HTML", "CSS", "JavaScript"],
+      category: "frontend",
+      liveUrl: "https://diamodjewellery.netlify.app/",
+      githubUrl: "#",
+      featured: true,
+      color: "from-purple-500 to-pink-500",
+      icon: <Palette className="h-6 w-6" />
     },
     {
-      title: "Tripy Travel Management",
-      description: "Responsive travel management platform with booking systems, trip planning, and destination showcase features.",
-      longDescription: "Modern travel website featuring trip planning, destination guides, and travel management tools with beautiful illustrations and responsive design.",
-      tech: ["HTML", "CSS", "JavaScript", "Responsive", "Travel API"],
-      category: "frontend",
+      id: 3,
+      title: "Arrow Real Estate",
+      description: "Full-stack real estate platform with property listings, user authentication, and database management.",
       image: "/lovable-uploads/fe9f1082-6ae3-41bb-84e1-6f5ad265083d.png",
-      github: "#",
-      live: "https://tripy-responsive-web.netlify.app/",
-      stats: { stars: 92, forks: 28 },
-      featured: false
-    },
-    {
-      title: "E-Commerce Platform",
-      description: "A full-featured e-commerce platform with modern UI, secure payments, and admin dashboard. Built with React, Node.js, and MongoDB.",
-      longDescription: "Complete e-commerce solution featuring user authentication, shopping cart, payment integration with Stripe, order management, and comprehensive admin panel.",
-      tech: ["React", "Node.js", "MongoDB", "Stripe", "Redux"],
+      tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
       category: "fullstack",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-      github: "#",
-      live: "#",
-      stats: { stars: 124, forks: 32 },
-      featured: false
+      liveUrl: "https://arrow-realestate.netlify.app/",
+      githubUrl: "#",
+      featured: true,
+      color: "from-blue-500 to-cyan-500",
+      icon: <Database className="h-6 w-6" />
     },
     {
-      title: "AI Task Manager",
-      description: "Smart task management app with AI-powered scheduling and real-time collaboration features.",
-      longDescription: "Revolutionary task management with AI suggestions, smart scheduling, team collaboration, and predictive analytics.",
-      tech: ["React", "TypeScript", "Firebase", "OpenAI", "Tailwind"],
+      id: 4,
+      title: "Tripy Travel Management",
+      description: "Responsive travel management system with booking features and destination showcases.",
+      image: "/lovable-uploads/b538e04c-02fd-4805-9bc7-5f0bf5101947.png",
+      tech: ["HTML", "CSS", "JavaScript"],
       category: "frontend",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-      github: "#",
-      live: "#",
-      stats: { stars: 89, forks: 21 },
-      featured: false
+      liveUrl: "https://tripy-responsive-web.netlify.app/",
+      githubUrl: "#",
+      featured: false,
+      color: "from-green-500 to-emerald-500",
+      icon: <Smartphone className="h-6 w-6" />
     },
     {
-      title: "Weather Analytics Dashboard",
-      description: "Interactive weather dashboard with advanced analytics, forecasting, and data visualization.",
-      longDescription: "Comprehensive weather platform featuring real-time data, historical analysis, predictive modeling, and beautiful visualizations.",
-      tech: ["React", "D3.js", "Python", "FastAPI", "PostgreSQL"],
-      category: "fullstack",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop",
-      github: "#",
-      live: "#",
-      stats: { stars: 67, forks: 15 },
-      featured: false
-    },
-    {
-      title: "Social Media API",
-      description: "RESTful API for social media platform with advanced features and microservices architecture.",
-      longDescription: "Scalable social media backend with user management, post handling, real-time messaging, and comprehensive API documentation.",
-      tech: ["Node.js", "Express", "MongoDB", "Redis", "Docker"],
-      category: "backend",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop",
-      github: "#",
-      live: "#",
-      stats: { stars: 156, forks: 43 },
-      featured: false
-    },
-    {
-      title: "Mobile Fitness App",
-      description: "Cross-platform fitness tracking app with workout plans and nutrition guidance.",
-      longDescription: "Complete fitness solution with personalized workouts, nutrition tracking, progress analytics, and social features.",
-      tech: ["React Native", "Expo", "Firebase", "Redux", "Stripe"],
-      category: "mobile",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
-      github: "#",
-      live: "#",
-      stats: { stars: 78, forks: 19 },
-      featured: false
-    },
-    {
-      title: "Portfolio Website",
-      description: "Modern, responsive portfolio website with advanced animations and interactive elements.",
-      longDescription: "Personal portfolio showcasing projects with smooth animations, dark/light themes, and optimized performance.",
-      tech: ["React", "TypeScript", "Tailwind", "Framer Motion", "Vite"],
+      id: 5,
+      title: "Stone Paper Gun Game",
+      description: "Interactive rock-paper-scissors game with engaging animations and score tracking.",
+      image: "/lovable-uploads/stone-paper-gun.png",
+      tech: ["HTML", "CSS", "JavaScript"],
       category: "frontend",
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
-      github: "#",
-      live: "#",
-      stats: { stars: 45, forks: 12 },
-      featured: false
+      liveUrl: "https://stone-paper-gun-game.netlify.app/",
+      githubUrl: "#",
+      featured: false,
+      color: "from-red-500 to-pink-500",
+      icon: <Gamepad2 className="h-6 w-6" />
+    },
+    {
+      id: 6,
+      title: "Portfolio Inzi",
+      description: "Personal portfolio website showcasing skills, projects, and professional experience.",
+      image: "/lovable-uploads/portfolio-inzi.png",
+      tech: ["HTML", "CSS", "JavaScript"],
+      category: "frontend",
+      liveUrl: "https://portfolioinzi.netlify.app/",
+      githubUrl: "#",
+      featured: false,
+      color: "from-indigo-500 to-purple-500",
+      icon: <User className="h-6 w-6" />
+    },
+    {
+      id: 7,
+      title: "Quiz Game",
+      description: "Interactive quiz application with multiple categories and real-time scoring system.",
+      image: "/lovable-uploads/quiz-game.png",
+      tech: ["HTML", "CSS", "JavaScript"],
+      category: "frontend",
+      liveUrl: "https://app.netlify.com/projects/quiz-gameee/",
+      githubUrl: "#",
+      featured: false,
+      color: "from-teal-500 to-blue-500",
+      icon: <HelpCircle className="h-6 w-6" />
     }
   ];
 
   const categories = [
-    { id: 'all', name: 'All Projects' },
-    { id: 'fullstack', name: 'Full Stack' },
-    { id: 'frontend', name: 'Frontend' },
-    { id: 'backend', name: 'Backend' },
-    { id: 'mobile', name: 'Mobile' }
+    { id: 'all', label: 'All Projects', icon: <Code className="h-4 w-4" /> },
+    { id: 'frontend', label: 'Frontend', icon: <Palette className="h-4 w-4" /> },
+    { id: 'fullstack', label: 'Full Stack', icon: <Database className="h-4 w-4" /> }
   ];
 
-  const filteredProjects = filter === 'all' 
+  const filteredProjects = activeFilter === 'all' 
     ? projects 
-    : projects.filter(project => project.category === filter);
+    : projects.filter(project => project.category === activeFilter);
 
   const featuredProjects = projects.filter(project => project.featured);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const cardHoverVariants = {
-    hover: {
-      y: -10,
-      scale: 1.02,
-      transition: {
-        duration: 0.3,
-        ease: "easeOut"
-      }
-    }
-  };
-
   return (
-    <section ref={sectionRef} id="projects" className="py-20 bg-black/20 backdrop-blur-sm">
+    <section id="projects" className="py-20">
       <div className="container mx-auto px-6">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="text-purple-400 font-medium mb-2">My Work</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Featured <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Projects</span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-            A collection of projects that showcase my skills in full-stack development, UI/UX design, and problem-solving
-          </p>
-        </motion.div>
+        <div className="text-center mb-16">
+          <div className="animate-fade-in">
+            <p className="text-purple-400 font-medium mb-2">Portfolio</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              My <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Projects</span>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full animate-scale-in"></div>
+            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+              Showcasing my journey through web development with projects ranging from elegant frontends to full-stack applications
+            </p>
+          </div>
+        </div>
 
         {/* Featured Projects */}
         <div className="mb-16">
-          <motion.h3 
-            className="text-2xl font-bold text-white mb-8"
-            initial={{ opacity: 0, x: -20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            🌟 Featured Projects
-          </motion.h3>
-          <motion.div 
-            className="grid lg:grid-cols-2 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-          >
+          <h3 className="text-2xl font-bold text-white mb-8 animate-fade-in">🌟 Featured Projects</h3>
+          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {featuredProjects.map((project, index) => (
-              <motion.div 
-                key={index} 
-                className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:bg-white/10 transition-all duration-500 group"
-                variants={itemVariants}
-                whileHover="hover"
-                initial="rest"
+              <div 
+                key={project.id}
+                className={`group relative bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:bg-white/10 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl animate-slide-up`}
+                style={{animationDelay: `${index * 0.2}s`}}
               >
-                <motion.div 
-                  className="relative overflow-hidden"
-                  variants={cardHoverVariants}
-                >
-                  <motion.img 
+                <div className="relative overflow-hidden">
+                  <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-64 object-cover transition-all duration-500"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.4 }}
+                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                  
-                  {/* Overlay buttons */}
-                  <motion.div 
-                    className="absolute top-4 right-4 flex space-x-2"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileHover={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                      <Button size="sm" className="bg-black/50 hover:bg-black/70 backdrop-blur-sm">
-                        <Github className="h-4 w-4" />
-                      </Button>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                      <Button size="sm" className="bg-black/50 hover:bg-black/70 backdrop-blur-sm">
-                        <ExternalLink className="h-4 w-4" />
-                      </Button>
-                    </motion.div>
-                  </motion.div>
-
-                  {/* Stats overlay */}
-                  <motion.div 
-                    className="absolute bottom-4 left-4 flex space-x-4 text-white text-sm"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 + 0.3 }}
-                  >
-                    <div className="flex items-center space-x-1">
-                      <Star className="h-4 w-4" />
-                      <span>{project.stats.stars}</span>
+                  <div className={`absolute inset-0 bg-gradient-to-t ${project.color} opacity-20 group-hover:opacity-30 transition-opacity duration-300`}></div>
+                  <div className="absolute top-4 right-4">
+                    <div className={`w-12 h-12 bg-gradient-to-r ${project.color} rounded-xl flex items-center justify-center backdrop-blur-sm animate-glow`}>
+                      {project.icon}
                     </div>
-                    <div className="flex items-center space-x-1">
-                      <GitFork className="h-4 w-4" />
-                      <span>{project.stats.forks}</span>
-                    </div>
-                  </motion.div>
-                </motion.div>
+                  </div>
+                </div>
                 
-                <motion.div 
-                  className="p-8"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: index * 0.1 + 0.4 }}
-                >
-                  <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-gray-300 mb-4 leading-relaxed">{project.longDescription}</p>
+                  <p className="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-2">
+                    {project.description}
+                  </p>
                   
-                  <motion.div 
-                    className="flex flex-wrap gap-2 mb-6"
-                    variants={containerVariants}
-                  >
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, techIndex) => (
-                      <motion.span 
-                        key={techIndex} 
-                        className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm border border-purple-500/30 hover:bg-purple-500/30 transition-all duration-300"
-                        whileHover={{ scale: 1.05 }}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: techIndex * 0.05 }}
+                      <span 
+                        key={techIndex}
+                        className={`px-3 py-1 bg-gradient-to-r ${project.color} text-white text-xs font-semibold rounded-full opacity-90`}
                       >
                         {tech}
-                      </motion.span>
+                      </span>
                     ))}
-                  </motion.div>
-                  
-                  <div className="flex space-x-4">
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button variant="outline" size="sm" className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white transition-all duration-300">
-                        <Github className="mr-2 h-4 w-4" />
-                        Code
-                      </Button>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button size="sm" className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 transition-all duration-300">
-                        <Play className="mr-2 h-4 w-4" />
-                        Live Demo
-                      </Button>
-                    </motion.div>
                   </div>
-                </motion.div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Filter tabs */}
-        <motion.div 
-          className="flex justify-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-        >
-          <div className="flex flex-wrap gap-2 bg-white/5 backdrop-blur-sm rounded-full p-2 border border-white/10">
-            {categories.map((category) => (
-              <motion.button
-                key={category.id}
-                onClick={() => setFilter(category.id)}
-                className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                  filter === category.id
-                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg'
-                    : 'text-gray-400 hover:text-white hover:bg-white/10'
-                }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {category.name}
-              </motion.button>
+                  
+                  <div className="flex items-center justify-between">
+                    <a 
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-purple-400 hover:text-purple-300 transition-all duration-300 text-sm font-medium transform hover:scale-110 hover:translate-x-1 group"
+                    >
+                      <ExternalLink className="h-4 w-4 mr-1 group-hover:animate-pulse" />
+                      Live Demo
+                    </a>
+                    <a 
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-gray-400 hover:text-white transition-all duration-300 text-sm transform hover:scale-110"
+                    >
+                      <Github className="h-4 w-4 mr-1" />
+                      Code
+                    </a>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        {/* All projects grid */}
-        <motion.div 
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
+        {/* Filter Tabs */}
+        <div className="flex justify-center mb-8">
+          <div className="flex bg-white/5 backdrop-blur-sm rounded-xl p-1 border border-white/10">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setActiveFilter(category.id)}
+                className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-all duration-300 ${
+                  activeFilter === category.id
+                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg'
+                    : 'text-gray-400 hover:text-white hover:bg-white/5'
+                }`}
+              >
+                {category.icon}
+                <span className="font-medium">{category.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* All Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
-            <motion.div 
-              key={index} 
-              className="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:bg-white/10 transition-all duration-500 group"
-              variants={itemVariants}
-              whileHover={{ 
-                y: -5,
-                scale: 1.02,
-                transition: { duration: 0.3 }
-              }}
+            <div 
+              key={project.id}
+              className={`group bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:bg-white/10 transition-all duration-500 transform hover:scale-105 animate-fade-in`}
+              style={{animationDelay: `${index * 0.1}s`}}
             >
               <div className="relative overflow-hidden">
-                <motion.img 
+                <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-all duration-500"
-                  whileHover={{ scale: 1.1 }}
+                  className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent group-hover:from-black/40 transition-all duration-300"></div>
+                <div className={`absolute inset-0 bg-gradient-to-t ${project.color} opacity-20 group-hover:opacity-30 transition-opacity duration-300`}></div>
               </div>
               
-              <motion.div 
-                className="p-6"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: index * 0.05 + 0.3 }}
-              >
-                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors duration-300">
+              <div className="p-5">
+                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-purple-300 transition-colors duration-300 line-clamp-1">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-4 line-clamp-2">{project.description}</p>
+                <p className="text-gray-400 text-sm mb-3 line-clamp-2">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-1 mb-4">
                   {project.tech.slice(0, 3).map((tech, techIndex) => (
                     <span 
-                      key={techIndex} 
-                      className="px-2 py-1 bg-purple-500/20 text-purple-300 rounded text-xs border border-purple-500/30"
+                      key={techIndex}
+                      className={`px-2 py-1 bg-gradient-to-r ${project.color} text-white text-xs font-semibold rounded opacity-80`}
                     >
                       {tech}
                     </span>
                   ))}
                   {project.tech.length > 3 && (
-                    <span className="px-2 py-1 text-gray-400 text-xs">
-                      +{project.tech.length - 3} more
+                    <span className="px-2 py-1 bg-gray-600 text-white text-xs font-semibold rounded opacity-80">
+                      +{project.tech.length - 3}
                     </span>
                   )}
                 </div>
                 
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
-                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                      <Button variant="ghost" size="sm" className="text-purple-400 hover:text-purple-300 p-2">
-                        <Github className="h-4 w-4" />
-                      </Button>
-                    </motion.div>
-                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                      <Button variant="ghost" size="sm" className="text-purple-400 hover:text-purple-300 p-2">
-                        <ExternalLink className="h-4 w-4" />
-                      </Button>
-                    </motion.div>
-                  </div>
-                  <div className="flex items-center space-x-2 text-gray-400 text-xs">
-                    <Star className="h-3 w-3" />
-                    <span>{project.stats.stars}</span>
-                  </div>
+                <div className="flex items-center justify-between">
+                  <a 
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-purple-400 hover:text-purple-300 transition-all duration-300 text-sm transform hover:scale-105"
+                  >
+                    <ExternalLink className="h-4 w-4 mr-1" />
+                    Live
+                  </a>
+                  <a 
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-gray-400 hover:text-white transition-all duration-300 text-sm transform hover:scale-105"
+                  >
+                    <Github className="h-4 w-4 mr-1" />
+                    Code
+                  </a>
                 </div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

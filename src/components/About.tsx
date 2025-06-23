@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Phone, Mail, User, GraduationCap, Briefcase, Globe } from 'lucide-react';
@@ -21,7 +22,7 @@ const About = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: [0.4, 0.0, 0.2, 1.0]
       }
     }
   };
@@ -33,7 +34,7 @@ const About = () => {
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut"
+        ease: [0.4, 0.0, 0.2, 1.0]
       }
     }
   };
@@ -75,7 +76,7 @@ const About = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Profile Image - Updated with uploaded image */}
+          {/* Profile Image */}
           <motion.div 
             className="order-1 lg:order-1 flex justify-center"
             variants={imageVariants}

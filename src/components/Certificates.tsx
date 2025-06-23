@@ -1,8 +1,22 @@
+
 import React from 'react';
 import { Award, Calendar, ExternalLink, Shield, Trophy, Medal, Star } from 'lucide-react';
 
 const Certificates = () => {
   const certificates = [
+    {
+      title: "CWIT Challenge Participation",
+      issuer: "VIT University",
+      date: "2024",
+      description: "Participated in CWIT Challenge held during September 6th 2024 to 28th September as a Visual Graphics Designing, Karnya.",
+      credentialId: "CWIT-2024-VIT",
+      verifyLink: "#",
+      level: "Participation",
+      icon: <Award className="h-6 w-6" />,
+      color: "from-cyan-500 to-blue-500",
+      featured: true,
+      certificateImage: "/lovable-uploads/e7e4e05d-b9e9-4731-a6c9-6549571f2b92.png"
+    },
     {
       title: "AWS Certified Solutions Architect",
       issuer: "Amazon Web Services",
@@ -126,6 +140,16 @@ const Certificates = () => {
                 className={`bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-all duration-500 group transform hover:scale-105 hover:shadow-2xl animate-slide-up`}
                 style={{animationDelay: `${index * 0.2}s`}}
               >
+                {cert.certificateImage && (
+                  <div className="mb-6">
+                    <img 
+                      src={cert.certificateImage} 
+                      alt={cert.title}
+                      className="w-full h-48 object-cover rounded-lg border border-white/20"
+                    />
+                  </div>
+                )}
+                
                 <div className="flex items-start space-x-6">
                   <div className="flex-shrink-0">
                     <div className={`w-16 h-16 bg-gradient-to-r ${cert.color} rounded-2xl flex items-center justify-center animate-glow transition-all duration-300 group-hover:scale-110`}>
