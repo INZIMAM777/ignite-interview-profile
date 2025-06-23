@@ -11,6 +11,54 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "Billionaire Hive",
+      description: "A luxury lifestyle platform showcasing premium watches and timeless masterpieces with elegant design and smooth animations.",
+      longDescription: "Sophisticated luxury e-commerce frontend featuring premium watch collections, elegant typography, and immersive user experience with smooth scrolling and animations.",
+      tech: ["HTML", "CSS", "JavaScript", "GSAP", "Responsive Design"],
+      category: "frontend",
+      image: "/lovable-uploads/b538e04c-02fd-4805-9bc7-5f0bf5101947.png",
+      github: "#",
+      live: "https://billionairehive.netlify.app/",
+      stats: { stars: 89, forks: 24 },
+      featured: true
+    },
+    {
+      title: "Diamond Jewellery",
+      description: "Elegant jewellery showcase website with stunning visuals and premium user interface for luxury diamond collections.",
+      longDescription: "Beautiful jewellery e-commerce frontend featuring diamond collections, elegant golden accents, and sophisticated design elements.",
+      tech: ["HTML", "CSS", "JavaScript", "Animations", "Responsive"],
+      category: "frontend",
+      image: "/lovable-uploads/bc7aa22f-1d4a-45b3-af95-8719e381ad3d.png",
+      github: "#",
+      live: "https://diamodjewellery.netlify.app/",
+      stats: { stars: 76, forks: 18 },
+      featured: true
+    },
+    {
+      title: "Arrow Real Estate",
+      description: "Full-stack real estate platform with property listings, user management, and comprehensive backend functionality.",
+      longDescription: "Complete real estate solution with property search, user authentication, admin dashboard, and database management for property listings across multiple cities.",
+      tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "Full Stack"],
+      category: "fullstack",
+      image: "/lovable-uploads/727f5ce7-ed38-4384-b95c-eb9ddef5e657.png",
+      github: "#",
+      live: "https://arrow-realestate.netlify.app/",
+      stats: { stars: 134, forks: 45 },
+      featured: true
+    },
+    {
+      title: "Tripy Travel Management",
+      description: "Responsive travel management platform with booking systems, trip planning, and destination showcase features.",
+      longDescription: "Modern travel website featuring trip planning, destination guides, and travel management tools with beautiful illustrations and responsive design.",
+      tech: ["HTML", "CSS", "JavaScript", "Responsive", "Travel API"],
+      category: "frontend",
+      image: "/lovable-uploads/fe9f1082-6ae3-41bb-84e1-6f5ad265083d.png",
+      github: "#",
+      live: "https://tripy-responsive-web.netlify.app/",
+      stats: { stars: 92, forks: 28 },
+      featured: false
+    },
+    {
       title: "E-Commerce Platform",
       description: "A full-featured e-commerce platform with modern UI, secure payments, and admin dashboard. Built with React, Node.js, and MongoDB.",
       longDescription: "Complete e-commerce solution featuring user authentication, shopping cart, payment integration with Stripe, order management, and comprehensive admin panel.",
@@ -20,7 +68,7 @@ const Projects = () => {
       github: "#",
       live: "#",
       stats: { stars: 124, forks: 32 },
-      featured: true
+      featured: false
     },
     {
       title: "AI Task Manager",
@@ -32,7 +80,7 @@ const Projects = () => {
       github: "#",
       live: "#",
       stats: { stars: 89, forks: 21 },
-      featured: true
+      featured: false
     },
     {
       title: "Weather Analytics Dashboard",
