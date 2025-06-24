@@ -22,7 +22,7 @@ const Projects = () => {
       id: 2,
       title: "Diamond Jewellery",
       description: "Elegant e-commerce showcase for premium diamond jewelry with sophisticated design and smooth user experience.",
-      image: "/lovable-uploads/727f5ce7-ed38-4384-b95c-eb9ddef5e657.png",
+      image: "",
       tech: ["HTML", "CSS", "JavaScript"],
       category: "frontend",
       liveUrl: "https://diamodjewellery.netlify.app/",
