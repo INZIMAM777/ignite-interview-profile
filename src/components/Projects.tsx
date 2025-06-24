@@ -10,7 +10,7 @@ const Projects = () => {
       id: 1,
       title: "Billionaire Hive",
       description: "A modern business platform showcasing entrepreneurial success stories and wealth-building strategies.",
-      image: "/lovable-uploads/b538e04c-02fd-4805-9bc7-5f0bf5101947.png",
+      image: "../public/project/BH.png",
       tech: ["HTML", "CSS", "JavaScript"],
       category: "frontend",
       liveUrl: "https://billionairehive.netlify.app/",
