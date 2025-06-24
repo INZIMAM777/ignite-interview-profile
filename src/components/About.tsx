@@ -84,18 +84,12 @@ const About = () => {
             viewport={{ once: true }}
           >
             <div className="relative">
-{/*               <motion.div 
+              <motion.div 
                 className="absolute -inset-4 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 rounded-2xl blur-lg"
                 animate={{
-                  scale: [1, 1.05, 1],
-                  rotate: [0, 180, 360]
+                  scale: [1, 1.05, 1]
                 }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              /> */}
+              />
               <motion.img 
                 src="/lovable-uploads/e2df5aea-fa40-4f63-9165-c7786a36b1ed.png" 
                 alt="Inzimamul Haq N"
