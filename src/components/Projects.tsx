@@ -14,7 +14,7 @@ const Projects = () => {
       tech: ["HTML", "CSS", "JavaScript"],
       category: "frontend",
       liveUrl: "https://billionairehive.netlify.app/",
-      githubUrl: "#",
+      githubUrl: "https://github.com/INZIMAM777",
       color: "from-yellow-500 to-orange-500",
       icon: <Globe className="h-6 w-6" />
     },
@@ -26,7 +26,7 @@ const Projects = () => {
       tech: ["HTML", "CSS", "JavaScript"],
       category: "frontend",
       liveUrl: "https://diamodjewellery.netlify.app/",
-      githubUrl: "#",
+      githubUrl: "https://github.com/INZIMAM777",
       color: "from-purple-500 to-pink-500",
       icon: <Palette className="h-6 w-6" />
     },
@@ -38,7 +38,7 @@ const Projects = () => {
       tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
       category: "fullstack",
       liveUrl: "https://arrow-realestate.netlify.app/",
-      githubUrl: "#",
+      githubUrl: "https://github.com/INZIMAM777",
       color: "from-blue-500 to-cyan-500",
       icon: <Database className="h-6 w-6" />
     },
@@ -50,7 +50,7 @@ const Projects = () => {
       tech: ["HTML", "CSS", "JavaScript"],
       category: "frontend",
       liveUrl: "https://tripy-responsive-web.netlify.app/",
-      githubUrl: "#",
+      githubUrl: "https://github.com/INZIMAM777",
       color: "from-green-500 to-emerald-500",
       icon: <Smartphone className="h-6 w-6" />
     },
@@ -58,11 +58,11 @@ const Projects = () => {
       id: 5,
       title: "Stone Paper Gun Game",
       description: "Interactive rock-paper-scissors game with engaging animations and score tracking.",
-      image: "/lovable-uploads/stone-paper-gun.png",
+      image: "/lovable-uploads/stone-paper-gun-game.png",
       tech: ["HTML", "CSS", "JavaScript"],
       category: "frontend",
       liveUrl: "https://stone-paper-gun-game.netlify.app/",
-      githubUrl: "#",
+      githubUrl: "https://github.com/INZIMAM777",
       color: "from-red-500 to-pink-500",
       icon: <Gamepad2 className="h-6 w-6" />
     },
@@ -70,11 +70,11 @@ const Projects = () => {
       id: 6,
       title: "Portfolio Inzi",
       description: "Personal portfolio website showcasing skills, projects, and professional experience.",
-      image: "/lovable-uploads/portfolio-inzi.png",
+      image: "/lovable-uploads/portfolio-inzi-new.png",
       tech: ["HTML", "CSS", "JavaScript"],
       category: "frontend",
       liveUrl: "https://portfolioinzi.netlify.app/",
-      githubUrl: "#",
+      githubUrl: "https://github.com/INZIMAM777",
       color: "from-indigo-500 to-purple-500",
       icon: <User className="h-6 w-6" />
     },
@@ -82,11 +82,11 @@ const Projects = () => {
       id: 7,
       title: "Quiz Game",
       description: "Interactive quiz application with multiple categories and real-time scoring system.",
-      image: "/lovable-uploads/quiz-game.png",
+      image: "/lovable-uploads/quiz-game-new.png",
       tech: ["HTML", "CSS", "JavaScript"],
       category: "frontend",
       liveUrl: "https://app.netlify.com/projects/quiz-gameee/",
-      githubUrl: "#",
+      githubUrl: "https://github.com/INZIMAM777",
       color: "from-teal-500 to-blue-500",
       icon: <HelpCircle className="h-6 w-6" />
     }
@@ -103,7 +103,7 @@ const Projects = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-slate-900">
+    <section id="projects" className="py-20 bg-white dark:bg-slate-900">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <div className="animate-fade-in">
@@ -120,7 +120,7 @@ const Projects = () => {
 
         {/* Filter Tabs */}
         <div className="flex justify-center mb-12">
-          <div className="flex bg-white dark:bg-slate-800 rounded-xl p-1 border border-gray-200 dark:border-gray-700 shadow-lg">
+          <div className="flex bg-gray-100 dark:bg-slate-800 rounded-xl p-1 border border-gray-200 dark:border-gray-700 shadow-lg">
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -128,7 +128,7 @@ const Projects = () => {
                 className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-all duration-300 ${
                   activeFilter === category.id
                     ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
-                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-700'
+                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-slate-700'
                 }`}
               >
                 {category.icon}
@@ -152,7 +152,6 @@ const Projects = () => {
                   alt={project.title}
                   className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t ${project.color} group-hover:from-transparent transition-all duration-300`}></div>
                 <div className="absolute top-4 right-4">
                   <div className={`w-12 h-12 bg-gradient-to-r ${project.color} rounded-xl flex items-center justify-center text-white shadow-lg`}>
                     {project.icon}

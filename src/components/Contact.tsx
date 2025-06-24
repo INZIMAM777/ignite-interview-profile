@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Send, Clock, MessageSquare } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, Clock, MessageSquare, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
@@ -57,6 +57,21 @@ const Contact = () => {
       title: 'Availability',
       content: 'Mon - Fri: 9AM - 6PM',
       color: 'text-orange-500'
+    }
+  ];
+
+  const socialLinks = [
+    {
+      icon: Github,
+      title: 'GitHub',
+      url: 'https://github.com/INZIMAM777',
+      color: 'text-gray-600 hover:text-gray-800'
+    },
+    {
+      icon: Linkedin,
+      title: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/inzimamul-haq-n-419aa428a/',
+      color: 'text-blue-600 hover:text-blue-800'
     }
   ];
 
@@ -161,14 +176,35 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Map placeholder */}
+            {/* Social Media Links */}
+            <motion.div variants={itemVariants}>
+              <h4 className="text-xl font-bold text-white mb-4">Follow Me</h4>
+              <div className="flex space-x-4">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 ${social.color}`}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <social.icon className="h-6 w-6" />
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Map placeholder for Vellore, Tamil Nadu */}
             <motion.div 
-              className="mt-8 h-64 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20 flex items-center justify-center"
+              className="mt-8 h-64 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20 flex items-center justify-center overflow-hidden"
               variants={itemVariants}
             >
               <div className="text-center">
                 <MapPin className="h-12 w-12 text-purple-400 mx-auto mb-2" />
-                <p className="text-gray-300">Interactive Map Coming Soon</p>
+                <p className="text-gray-300 font-semibold">Vellore, Tamil Nadu</p>
+                <p className="text-gray-400 text-sm">Interactive Map Coming Soon</p>
               </div>
             </motion.div>
           </motion.div>

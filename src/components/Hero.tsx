@@ -37,7 +37,7 @@ const Hero = () => {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut"
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };
@@ -189,13 +189,15 @@ const Hero = () => {
             variants={itemVariants}
           >
             {[
-              { icon: <Github className="h-6 w-6" />, href: "#", label: "GitHub" },
-              { icon: <Linkedin className="h-6 w-6" />, href: "#", label: "LinkedIn" },
+              { icon: <Github className="h-6 w-6" />, href: "https://github.com/INZIMAM777", label: "GitHub" },
+              { icon: <Linkedin className="h-6 w-6" />, href: "https://www.linkedin.com/in/inzimamul-haq-n-419aa428a/", label: "LinkedIn" },
               { icon: <Mail className="h-6 w-6" />, href: "mailto:inzimamulhaqn@gmail.com", label: "Email" }
             ].map((social, index) => (
               <motion.a
                 key={index}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/20 transition-all duration-300"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.9 }}
