@@ -48,12 +48,20 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Enhanced Logo */}
           <motion.div
-            className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+            className="flex items-center space-x-2"
             whileHover={{ scale: 1.05 }}
           >
-            Inzimam
+            <div className="relative">
+              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 via-pink-600 to-purple-800 rounded-xl flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-lg">I</span>
+              </div>
+              <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full animate-pulse"></div>
+            </div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              nzimam
+            </span>
           </motion.div>
 
           {/* Desktop Navigation */}
