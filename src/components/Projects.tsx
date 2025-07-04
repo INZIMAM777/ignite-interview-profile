@@ -16,7 +16,7 @@ const Projects = () => {
       tech: ["HTML", "CSS", "JavaScript"],
       category: "frontend",
       liveUrl: "https://billionairehive.netlify.app/",
-      githubUrl: "https://github.com/INZIMAM777",
+      githubUrl: "https://github.com/INZIMAM777/project2",
       color: "from-yellow-500 to-orange-500",
       icon: <Globe className="h-6 w-6" />
     },
@@ -28,7 +28,7 @@ const Projects = () => {
       tech: ["HTML", "CSS", "JavaScript"],
       category: "frontend",
       liveUrl: "https://diamodjewellery.netlify.app/",
-      githubUrl: "https://github.com/INZIMAM777",
+      githubUrl: "https://github.com/INZIMAM777/project1",
       color: "from-purple-500 to-pink-500",
       icon: <Palette className="h-6 w-6" />
     },
@@ -40,7 +40,7 @@ const Projects = () => {
       tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
       category: "fullstack",
       liveUrl: "https://arrow-realestate.netlify.app/",
-      githubUrl: "https://github.com/INZIMAM777",
+      githubUrl: "https://github.com/INZIMAM777/web_project",
       color: "from-blue-500 to-cyan-500",
       icon: <Database className="h-6 w-6" />
     },
@@ -52,43 +52,55 @@ const Projects = () => {
       tech: ["HTML", "CSS", "JavaScript"],
       category: "frontend",
       liveUrl: "https://tripy-responsive-web.netlify.app/",
-      githubUrl: "https://github.com/INZIMAM777",
+      githubUrl: "https://github.com/INZIMAM777/TRIPY_Responsive",
       color: "from-green-500 to-emerald-500",
       icon: <Smartphone className="h-6 w-6" />
     },
     {
       id: 5,
-      title: "Stone Paper Gun Game",
-      description: "Rock-paper-scissors game with animations & scoring.",
-      image: "/projects/SWGG (1).png",
-      tech: ["HTML", "CSS", "JavaScript"],
-      category: "frontend",
-      liveUrl: "https://stone-paper-gun-game.netlify.app/",
-      githubUrl: "https://github.com/INZIMAM777",
-      color: "from-red-500 to-pink-500",
-      icon: <Gamepad2 className="h-6 w-6" />
-    },
-    {
-      id: 6,
       title: "Portfolio Inzi",
       description: "Personal portfolio showcasing skills and experience.",
       image: "/projects/PI.png",
       tech: ["HTML", "CSS", "JavaScript"],
       category: "frontend",
       liveUrl: "https://portfolioinzi.netlify.app/",
-      githubUrl: "https://github.com/INZIMAM777",
+      githubUrl: "https://github.com/INZIMAM777/ignite-interview-profile",
+      color: "from-indigo-500 to-purple-500",
+      icon: <User className="h-6 w-6" />
+    },
+    {
+      id: 6,
+      title: "Pokemon Cards",
+      description: "Pokemon Cards showcasing pokemons physical strength,skillse,experience.",
+      image: "/projects/PK.png",
+      tech: ["REACT",],
+      category: "frontend",
+      liveUrl: "https://pokemondetailed.netlify.app/",
+      githubUrl: "https://github.com/INZIMAM777/Pokemon_cards",
       color: "from-indigo-500 to-purple-500",
       icon: <User className="h-6 w-6" />
     },
     {
       id: 7,
+      title: "Stone-Gun-Water-Game",
+      description: "Stone-Gun-Water-Game game with animations & scoring.",
+      image: "/projects/SWGG (1).png",
+      tech: ["HTML", "CSS", "JavaScript"],
+      category: "frontend",
+      liveUrl: "https://stone-paper-gun-game.netlify.app/",
+      githubUrl: "https://github.com/INZIMAM777/Stone-Gun-Water-Game",
+      color: "from-red-500 to-pink-500",
+      icon: <Gamepad2 className="h-6 w-6" />
+    },    
+    {
+      id: 8,
       title: "Quiz Game",
       description: "Interactive quiz with multiple categories and scores.",
       image: "/projects/SWGG (2).png",
       tech: ["HTML", "CSS", "JavaScript"],
       category: "frontend",
       liveUrl: "https://quiz-gameee.netlify.app/",
-      githubUrl: "https://github.com/INZIMAM777",
+      githubUrl: "https://github.com/INZIMAM777/Quiz_game",
       color: "from-teal-500 to-blue-500",
       icon: <HelpCircle className="h-6 w-6" />
     }
