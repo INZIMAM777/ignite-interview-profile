@@ -14,7 +14,6 @@ const Navbar = () => {
     { name: 'Projects', href: '#projects', icon: Code },
     { name: 'Certificates', href: '#certificates', icon: Award },
     { name: 'Contact', href: '#contact', icon: Mail },
-    { name: 'Pokémon', href: '/pokemon', icon: Code },
   ];
 
   useEffect(() => {
