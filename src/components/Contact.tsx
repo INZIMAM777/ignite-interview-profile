@@ -1,10 +1,5 @@
-
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Send, Clock, MessageSquare, Github, Linkedin } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { useToast } from '@/hooks/use-toast';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,9 +8,8 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  const { toast } = useToast();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -25,289 +19,179 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon!",
-    });
+    // Handle form submission here
+    console.log('Form submitted:', formData);
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
-  const contactInfo = [
-    {
-      icon: MapPin,
-      title: 'Address',
-      content: 'Vellore, Tamil Nadu, India-635810',
-      color: 'text-blue-500'
-    },
-    {
-      icon: Phone,
-      title: 'Call Us',
-      content: '+91 9043531165',
-      color: 'text-green-500'
-    },
-    {
-      icon: Mail,
-      title: 'Email Us',
-      content: 'inzimamulhaqn@gmail.com',
-      color: 'text-purple-500'
-    },
-    {
-      icon: Clock,
-      title: 'Availability',
-      content: 'Mon - Fri: 9AM - 6PM',
-      color: 'text-orange-500'
-    }
-  ];
-
-  const socialLinks = [
-    {
-      icon: Github,
-      title: 'GitHub',
-      url: 'https://github.com/INZIMAM777',
-      color: 'text-gray-600 hover:text-gray-800'
-    },
-    {
-      icon: Linkedin,
-      title: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/inzimamul-haq-n-419aa428a/',
-      color: 'text-blue-600 hover:text-blue-800'
-    }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
-
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <section id="contact" className="py-20 bg-white dark:bg-slate-900">
       <div className="container mx-auto px-6">
-        <motion.div 
-          className="text-center mb-16"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
-            variants={itemVariants}
-          >
-            Get In Touch
-          </motion.h2>
-          <motion.p 
-            className="text-lg text-gray-300 max-w-3xl mx-auto"
-            variants={itemVariants}
-          >
-            I'm always open to freelance opportunities, collaborations, or creative discussions. 
-            Feel free to reach out — I'd love to hear from you and see how we can bring your ideas to life!
-          </motion.p>
-        </motion.div>
+        <div className="text-center mb-16">
+          <p className="text-purple-600 dark:text-purple-400 font-medium mb-2">Get In Touch</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            Contact <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Me</span>
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto rounded-full"></div>
+          <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
+            Have a project in mind? Let's discuss how we can bring your ideas to life with modern web technologies.
+          </p>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <motion.div 
-            className="space-y-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <motion.div variants={itemVariants}>
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-                <MessageSquare className="mr-3 h-6 w-6 text-purple-400" />
-                Let's Connect
-              </h3>
-            </motion.div>
+          {/* Contact Info */}
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Let's Start a Conversation</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-8">
+                I'm always interested in new opportunities and exciting projects. Whether you're a company looking to hire, or you're someone with a project idea, I'd love to hear from you.
+              </p>
+            </div>
 
-            <div className="grid gap-6">
-              {contactInfo.map((info, index) => (
-                <motion.div
+            <div className="space-y-6">
+              {[
+                {
+                  icon: Mail,
+                  title: "Email",
+                  content: "inzimamulhaqn@gmail.com",
+                  link: "mailto:inzimamulhaqn@gmail.com"
+                },
+                {
+                  icon: Phone,
+                  title: "Phone",
+                  content: "+91 9043531165",
+                  link: "tel:+919043531165"
+                },
+                {
+                  icon: MapPin,
+                  title: "Location",
+                  content: "Tamil Nadu, India",
+                  link: "#"
+                }
+              ].map((item, index) => (
+                <div 
                   key={index}
-                  variants={cardVariants}
-                  whileHover={{ scale: 1.02, x: 5 }}
-                  transition={{ duration: 0.2 }}
+                  className="flex items-start space-x-4 p-6 bg-gray-50 dark:bg-slate-800 rounded-xl hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors duration-300"
                 >
-                  <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300">
-                    <CardContent className="p-6">
-                      <div className="flex items-center space-x-4">
-                        <div className={`p-3 rounded-full bg-white/10 ${info.color}`}>
-                          <info.icon className="h-6 w-6" />
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-white text-lg">{info.title}</h4>
-                          <p className="text-gray-300">{info.content}</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
+                      <item.icon className="h-6 w-6 text-white" />
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-1">{item.title}</h4>
+                    <a 
+                      href={item.link}
+                      className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                    >
+                      {item.content}
+                    </a>
+                  </div>
+                </div>
               ))}
             </div>
 
-            {/* Social Media Links */}
-            <motion.div variants={itemVariants}>
-              <h4 className="text-xl font-bold text-white mb-4">Follow Me</h4>
+            {/* Social Links */}
+            <div>
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Follow Me</h4>
               <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
-                  <motion.a
+                {[
+                  { icon: Github, href: "https://github.com/INZIMAM777", label: "GitHub" },
+                  { icon: Linkedin, href: "#", label: "LinkedIn" },
+                  { icon: Twitter, href: "#", label: "Twitter" }
+                ].map((social, index) => (
+                  <a
                     key={index}
-                    href={social.url}
+                    href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 ${social.color}`}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.9 }}
+                    className="w-12 h-12 bg-gray-100 dark:bg-slate-800 rounded-lg flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 hover:text-white transition-all duration-300 transform hover:scale-110"
+                    aria-label={social.label}
                   >
-                    <social.icon className="h-6 w-6" />
-                  </motion.a>
+                    <social.icon className="h-5 w-5" />
+                  </a>
                 ))}
               </div>
-            </motion.div>
-
-            {/* Map placeholder for Vellore, Tamil Nadu */}
-            <motion.div 
-              className="mt-8 h-64 bg-white/10 rounded-xl backdrop-blur-sm border border-white/20 flex items-center justify-center overflow-hidden"
-              variants={itemVariants}
-            >
-              <div className="text-center">
-                <MapPin className="h-12 w-12 text-purple-400 mx-auto mb-2" />
-                <p className="text-gray-300 font-semibold">Vellore, Tamil Nadu</p>
-                <p className="text-gray-400 text-sm">Interactive Map Coming Soon</p>
-              </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Contact Form */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <motion.div variants={itemVariants}>
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20">
-                <CardContent className="p-8">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <motion.div variants={itemVariants}>
-                        <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
-                          Your Name
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          required
-                          className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
-                          placeholder="Enter your name"
-                        />
-                      </motion.div>
-
-                      <motion.div variants={itemVariants}>
-                        <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
-                          Your Email
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          required
-                          className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
-                          placeholder="Enter your email"
-                        />
-                      </motion.div>
-                    </div>
-
-                    <motion.div variants={itemVariants}>
-                      <label htmlFor="subject" className="block text-sm font-medium text-white mb-2">
-                        Subject
-                      </label>
-                      <input
-                        type="text"
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
-                        placeholder="Enter subject"
-                      />
-                    </motion.div>
-
-                    <motion.div variants={itemVariants}>
-                      <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        required
-                        rows={6}
-                        className="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 resize-none"
-                        placeholder="Enter your message"
-                      />
-                    </motion.div>
-
-                    <motion.div 
-                      className="text-center"
-                      variants={itemVariants}
-                    >
-                      <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <Button 
-                          type="submit"
-                          className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-3 rounded-full transition-all duration-300 group"
-                        >
-                          <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
-                          Send Message
-                        </Button>
-                      </motion.div>
-                    </motion.div>
-                  </form>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </motion.div>
+          <div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-slate-800 dark:text-white transition-all duration-300"
+                    placeholder="Your Name"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-slate-800 dark:text-white transition-all duration-300"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Subject *
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-slate-800 dark:text-white transition-all duration-300"
+                  placeholder="Project Discussion"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Message *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={6}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-slate-800 dark:text-white resize-none transition-all duration-300"
+                  placeholder="Tell me about your project ideas, requirements, or any questions you have..."
+                ></textarea>
+              </div>
+              
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
+              >
+                <Send className="h-5 w-5" />
+                <span>Send Message</span>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
